@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 13px; fill: #64748b; }
+      .box-title { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 15px; font-weight: 700; }
+      .cmd-modern { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 13px; font-weight: 700; fill: #dc2626; }
+      .cmd-legacy { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11px; fill: #64748b; text-decoration: line-through; }
+      .legacy-tag { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif; font-size: 10px; fill: #94a3b8; }
+      .note-text { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif; font-size: 12px; fill: #334155; }
+    </style>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.06" />
+    </filter>
+    <marker id="arrow-undo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#dc2626" />
+    </marker>
+    <marker id="arrow-forward" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="880" height="440" rx="16" fill="#f8fafc" />
+  <rect x="20" y="20" width="840" height="400" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)" />
+
+  <!-- 상단 제목 -->
+  <text x="50" y="58" class="title">Git 되돌리기(Undo) 맵 &amp; checkout 비교</text>
+  <text x="50" y="80" class="subtitle">실수했을 때 안전하게 복구하는 최신 모던 커맨드와 기존 레거시 커맨드 매핑</text>
+
+  <!-- 메인 3대 영역 박스들 -->
+  <!-- 1. 작업 디렉터리 -->
+  <g transform="translate(50, 110)">
+    <rect width="210" height="150" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="0" y="0" width="210" height="38" rx="8" fill="#e2e8f0" />
+    <text x="15" y="24" class="box-title" fill="#1e293b">1. 작업 디렉터리</text>
+    <text x="15" y="65" class="note-text" font-weight="600">내 책상 (파일 수정 중)</text>
+    <rect x="15" y="80" width="180" height="28" rx="4" fill="#ffffff" stroke="#e2e8f0" />
+    <text x="25" y="98" class="note-text" fill="#ef4444">✏️ 잘못 수정한 코드</text>
+  </g>
+
+  <!-- 2. 스테이징 영역 -->
+  <g transform="translate(335, 110)">
+    <rect width="210" height="150" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
+    <rect x="0" y="0" width="210" height="38" rx="8" fill="#dbeafe" />
+    <text x="15" y="24" class="box-title" fill="#1e40af">2. 스테이징 영역</text>
+    <text x="15" y="65" class="note-text" font-weight="600" fill="#1e40af">장바구니 (커밋 대기)</text>
+    <rect x="15" y="80" width="180" height="28" rx="4" fill="#ffffff" stroke="#bfdbfe" />
+    <text x="25" y="98" class="note-text" fill="#2563eb">🛒 담겨진 파일 (Staged)</text>
+  </g>
+
+  <!-- 3. 로컬 저장소 -->
+  <g transform="translate(620, 110)">
+    <rect width="210" height="150" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5" />
+    <rect x="0" y="0" width="210" height="38" rx="8" fill="#d1fae5" />
+    <text x="15" y="24" class="box-title" fill="#065f46">3. 로컬 저장소</text>
+    <text x="15" y="65" class="note-text" font-weight="600" fill="#065f46">영구 금고 (.git)</text>
+    <rect x="15" y="80" width="180" height="28" rx="4" fill="#ffffff" stroke="#a7f3d0" />
+    <text x="25" y="98" class="note-text" fill="#059669">📦 마지막 커밋 (HEAD)</text>
+  </g>
+
+  <!-- 정방향 흐름 화살표 (add, commit) -->
+  <g transform="translate(260, 140)">
+    <line x1="5" y1="0" x2="70" y2="0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-forward)" />
+    <text x="38" y="-8" font-family="monospace" font-size="11" fill="#64748b" text-anchor="middle">git add</text>
+  </g>
+  <g transform="translate(545, 140)">
+    <line x1="5" y1="0" x2="70" y2="0" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-forward)" />
+    <text x="38" y="-8" font-family="monospace" font-size="11" fill="#64748b" text-anchor="middle">git commit</text>
+  </g>
+
+  <!-- 되돌리기 1: 언스테이징 (2 -> 1) -->
+  <g transform="translate(260, 190)">
+    <line x1="70" y1="0" x2="5" y2="0" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrow-undo)" />
+    <text x="38" y="-6" font-family="sans-serif" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">장바구니 빼기</text>
+  </g>
+
+  <!-- 하단: 되돌리기 명령어 비교 카드 2개 -->
+  <!-- 되돌리기 카드 A: 워킹 디렉터리 수정 취소 -->
+  <g transform="translate(50, 280)">
+    <rect width="365" height="120" rx="8" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.2" />
+    <text x="16" y="24" font-family="sans-serif" font-size="13" font-weight="700" fill="#9f1239">① 책상 위 낙서 지우기 (워킹트리 수정 취소)</text>
+    <text x="16" y="44" class="note-text">마지막 커밋 상태로 파일을 깨끗하게 되돌림</text>
+
+    <!-- 최신 명령어 -->
+    <rect x="16" y="56" width="333" height="28" rx="4" fill="#ffffff" stroke="#fda4af" />
+    <text x="26" y="74" class="cmd-modern">git restore &lt;file&gt;</text>
+    <rect x="255" y="60" width="85" height="20" rx="4" fill="#f43f5e" />
+    <text x="297" y="74" font-family="sans-serif" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">최신 권장</text>
+
+    <!-- 기존 레거시 -->
+    <text x="26" y="102" class="legacy-tag">기존(레거시):</text>
+    <text x="95" y="102" class="cmd-legacy">git checkout -- &lt;file&gt;</text>
+  </g>
+
+  <!-- 되돌리기 카드 B: 스테이징 취소 -->
+  <g transform="translate(465, 280)">
+    <rect width="365" height="120" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.2" />
+    <text x="16" y="24" font-family="sans-serif" font-size="13" font-weight="700" fill="#9a3412">② 장바구니에서 빼기 (Unstaging)</text>
+    <text x="16" y="44" class="note-text">파일 내용은 그대로 두고 스테이징 영역에서만 제거</text>
+
+    <!-- 최신 명령어 -->
+    <rect x="16" y="56" width="333" height="28" rx="4" fill="#ffffff" stroke="#fdba74" />
+    <text x="26" y="74" class="cmd-modern" fill="#ea580c">git restore --staged &lt;file&gt;</text>
+    <rect x="255" y="60" width="85" height="20" rx="4" fill="#ea580c" />
+    <text x="297" y="74" font-family="sans-serif" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">최신 권장</text>
+
+    <!-- 기존 레거시 -->
+    <text x="26" y="102" class="legacy-tag">기존(레거시):</text>
+    <text x="95" y="102" class="cmd-legacy">git reset HEAD &lt;file&gt;</text>
+  </g>
+</svg>

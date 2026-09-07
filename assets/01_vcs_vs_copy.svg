@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 13px; fill: #64748b; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 16px; font-weight: 700; }
+      .text-main { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 13px; fill: #334155; }
+      .text-muted { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 11px; fill: #64748b; }
+      .badge-text { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; }
+      .node-text { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; fill: #ffffff; }
+    </style>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="880" height="420" rx="16" fill="#f8fafc" />
+  <rect x="20" y="20" width="840" height="380" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)" />
+
+  <!-- 상단 제목 바 -->
+  <text x="50" y="58" class="title">왜 Git(버전 관리)을 써야 할까요?</text>
+  <text x="50" y="80" class="subtitle">단순 파일 복사 방식의 한계와 Git 스냅샷 타임라인의 차이점</text>
+
+  <!-- 좌측: 파일 복사 방식의 비극 -->
+  <g transform="translate(50, 105)">
+    <rect width="360" height="265" rx="10" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" />
+    
+    <!-- 뱃지 -->
+    <rect x="20" y="18" width="130" height="24" rx="12" fill="#fee2e2" />
+    <text x="32" y="34" class="badge-text" fill="#ef4444">❌ 수동 파일 복사</text>
+
+    <!-- 파일 목록 박스들 -->
+    <g transform="translate(20, 56)">
+      <rect width="320" height="38" rx="6" fill="#ffffff" stroke="#fca5a5" stroke-width="1" />
+      <circle cx="20" cy="19" r="8" fill="#fecaca" />
+      <text x="38" y="23" class="text-main" font-weight="600">보고서_최종.docx</text>
+      <text x="250" y="23" class="text-muted">어제 14:00</text>
+    </g>
+
+    <g transform="translate(20, 102)">
+      <rect width="320" height="38" rx="6" fill="#ffffff" stroke="#fca5a5" stroke-width="1" />
+      <circle cx="20" cy="19" r="8" fill="#fca5a5" />
+      <text x="38" y="23" class="text-main" font-weight="600">보고서_진짜최종.docx</text>
+      <text x="250" y="23" class="text-muted">어제 17:30</text>
+    </g>
+
+    <g transform="translate(20, 148)">
+      <rect width="320" height="38" rx="6" fill="#ffffff" stroke="#f87171" stroke-width="1.5" />
+      <circle cx="20" cy="19" r="8" fill="#ef4444" />
+      <text x="38" y="23" class="text-main" font-weight="700" fill="#dc2626">final_final2_진짜제발.docx</text>
+      <text x="250" y="23" class="text-muted">오늘 02:10</text>
+    </g>
+
+    <!-- 문제점 설명 -->
+    <g transform="translate(20, 202)">
+      <text x="5" y="16" class="text-muted" fill="#b91c1c">⚠️ 어떤 파일이 최신인지 알기 어려움</text>
+      <text x="5" y="36" class="text-muted" fill="#b91c1c">⚠️ 다른 사람과 작업 시 덮어쓰기 사고 발생</text>
+      <text x="5" y="56" class="text-muted" fill="#b91c1c">⚠️ 과거 특정 시점으로 안전하게 되돌릴 수 없음</text>
+    </g>
+  </g>
+
+  <!-- 우측: Git 버전 관리 방식 -->
+  <g transform="translate(470, 105)">
+    <rect width="360" height="265" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5" />
+    
+    <!-- 뱃지 -->
+    <rect x="20" y="18" width="130" height="24" rx="12" fill="#dcfce7" />
+    <text x="32" y="34" class="badge-text" fill="#16a34a">✅ Git 버전 관리</text>
+
+    <!-- 단일 파일 표시 -->
+    <g transform="translate(20, 56)">
+      <rect width="320" height="38" rx="6" fill="#ffffff" stroke="#86efac" stroke-width="1.5" />
+      <circle cx="20" cy="19" r="8" fill="#22c55e" />
+      <text x="38" y="23" class="text-main" font-weight="700" fill="#15803d">보고서.docx (파일 1개로 깔끔 관리)</text>
+    </g>
+
+    <!-- 타임라인 그래프 -->
+    <g transform="translate(30, 125)">
+      <!-- 연결선 -->
+      <line x1="20" y1="20" x2="280" y2="20" stroke="#86efac" stroke-width="4" stroke-dasharray="2,2" />
+      <line x1="20" y1="20" x2="200" y2="20" stroke="#16a34a" stroke-width="4" />
+
+      <!-- 커밋 1 -->
+      <circle cx="20" cy="20" r="14" fill="#16a34a" />
+      <text x="20" y="24" class="node-text" text-anchor="middle">v1</text>
+      <text x="20" y="46" class="text-muted" text-anchor="middle">초안 작성</text>
+
+      <!-- 커밋 2 -->
+      <circle cx="110" cy="20" r="14" fill="#16a34a" />
+      <text x="110" y="24" class="node-text" text-anchor="middle">v2</text>
+      <text x="110" y="46" class="text-muted" text-anchor="middle">서론 수정</text>
+
+      <!-- 커밋 3 (현재) -->
+      <circle cx="200" cy="20" r="16" fill="#059669" stroke="#bbf7d0" stroke-width="3" />
+      <text x="200" y="25" class="node-text" text-anchor="middle">v3</text>
+      <text x="200" y="46" class="text-main" font-weight="700" text-anchor="middle">결론 추가</text>
+      
+      <!-- 현재 위치 깃발 -->
+      <rect x="180" y="-18" width="40" height="18" rx="4" fill="#0f172a" />
+      <text x="200" y="-5" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">HEAD</text>
+    </g>
+
+    <!-- Git 장점 설명 -->
+    <g transform="translate(20, 202)">
+      <text x="5" y="16" class="text-muted" fill="#15803d">✨ 파일 이름 하나만 유지하면서 전 역사 보관</text>
+      <text x="5" y="36" class="text-muted" fill="#15803d">✨ 누가, 언제, 무엇을 바꿨는지 정확히 기록</text>
+      <text x="5" y="56" class="text-muted" fill="#15803d">✨ 언제든 과거의 특정 커밋 시점으로 시간 여행</text>
+    </g>
+  </g>
+</svg>
