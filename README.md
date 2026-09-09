@@ -36,3 +36,7 @@
 2. 🥊 **[10단계 손맛 챌린지 & 나만의 TIL 과제 워크북 (02_hands_on_practice.md)](./02_hands_on_practice.md)**
    - 군더더기 없는 10단계 핵심 손맛 실습 (로컬 생성 $\rightarrow$ 3회 커밋 $\rightarrow$ 원격 푸시 $\rightarrow$ hard reset 예측 퀴즈 $\rightarrow$ 원격 복구 $\rightarrow$ 폴더 삭제 $\rightarrow$ clone 부활)
    - AI 시대를 이기는 나만의 언어로 작성하는 TIL 과제 작성 및 PR 제출 가이드 (`01_이름_Git버전관리`)
+3. ☕ **[Day 2 Java 기초 핸즈온 교안 (03_java_basics_hands_on.md)](./03_java_basics_hands_on.md)**
+   - 코딩 무경험자/창업자를 위한 4시간 완성 Java 기초 (변수, 조건문, 반복문, 메서드 5대 기둥 실습)
+   - IntelliJ 단일 통합 설치, 2인 1조 페어 코드 워크스루, assignments/day02/ 과제 제출 가이드
+
